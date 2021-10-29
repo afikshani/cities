@@ -58,11 +58,11 @@ function calculateScoreAfterTextFiltering({ text, latitude: lat, longitude: long
             return item;
         });
     } else return results.map(item => {
-            const diffInLat = findDifference(item.lat, lat);
-            const diffInLong = findDifference(item.long, long);
-            const score = Math.sqrt(Math.pow(calScoreBasedOnDiff(diffInLat), 2) + Math.pow(calScoreBasedOnDiff(diffInLong), 2));
-            item.score = score > 1 ? getRandomNumberInRange(QUERY_SCORE_COEFFICIENT.THIRD, EDGE_VALUES_FOR_SCORE.MAX_COEFFICIENT) : score;
-            return item;
+        const diffInLat = findDifference(item.lat, lat);
+        const diffInLong = findDifference(item.long, long);
+        const score = Math.sqrt(Math.pow(calScoreBasedOnDiff(diffInLat), 2) + Math.pow(calScoreBasedOnDiff(diffInLong), 2));
+        item.score = score > 1 ? getRandomNumberInRange(QUERY_SCORE_COEFFICIENT.THIRD, EDGE_VALUES_FOR_SCORE.MAX_COEFFICIENT) : score;
+        return item;
     });
 }
 
