@@ -69,15 +69,15 @@ function calScoreBasedOnDiff(value) {
     const {
         FIRST, SECOND, THIRD, FOURTH, FIFTH
     } = QUERY_SCORE_COEFFICIENT;
-    if (value === 0) {
+    if (value < 0.5) {
         return FIRST;
-    } else if ( value < 0.5 ) {
-        return getRandomNumberInRange(SECOND, FIRST);
     } else if ( value < 1 ) {
-        return getRandomNumberInRange(THIRD, SECOND);
+        return getRandomNumberInRange(SECOND, FIRST);
     } else if ( value < 3 ) {
-        return getRandomNumberInRange(FOURTH, THIRD);
+        return getRandomNumberInRange(THIRD, SECOND);
     } else if ( value < 5 ) {
+        return getRandomNumberInRange(FOURTH, THIRD);
+    } else if ( value < 7 ) {
         return getRandomNumberInRange(FIFTH, FOURTH);
     } else {
         return getRandomNumberInRange(EDGE_VALUES_FOR_SCORE.MIN_COEFFICIENT, FIFTH);
