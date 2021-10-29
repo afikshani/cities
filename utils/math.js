@@ -1,5 +1,5 @@
 function getRandomNumberInRange(minValue, maxValue) {
-    return minValue + Math.floor((maxValue - minValue) * Math.random());
+    return minValue + (maxValue - minValue) * Math.random();
 }
 
 function findDifference(firstVal, secondVal){

@@ -38,9 +38,9 @@ function calculateScoreAfterTextFiltering({ text, latitude: lat, longitude: long
         return results.map(item => {
             let score;
             if (item.name === text) {
-                score = 1
+                score = 1;
             } else {
-                score = getRandomNumberInRange(EDGE_VALUES_FOR_SCORE.MIN_COEFFICIENT, EDGE_VALUES_FOR_SCORE.MIN_COEFFICIENT);
+                score = getRandomNumberInRange(EDGE_VALUES_FOR_SCORE.MIN_COEFFICIENT, EDGE_VALUES_FOR_SCORE.MAX_COEFFICIENT);
             }
             item.score = score;
             return item;
