@@ -2,7 +2,7 @@ const DB = require('./db');
 
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 try {
     DB.init();
@@ -14,4 +14,4 @@ try {
 } catch(err) {
     console.error(err.stack);
     process.exit(1);
-};
+}
